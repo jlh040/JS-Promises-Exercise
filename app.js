@@ -10,8 +10,8 @@ function makeAndAppendCards(data) {
     for (let num in data) {
         $numDiv.append(`<div class="card">
                         <div class="card-body">
-                            <div class="card-title">${num}</div>
-                            <div class="card-text">${data[num]}</div>
+                            <h5 class="card-title">${num}</h5>
+                            <h6 class="card-text">${data[num]}</h6>
                         </div>
                      </div>
                      `)
