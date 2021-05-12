@@ -1,15 +1,18 @@
 const $numDiv = $('.num-div');
 
-
-
-
+Promise.all(makeRequests())
+    .then(resp => {
+        makeAndAppendCards(resp)
+    })
+    .catch(err => {
+        $('body').html('<h1>Sorry, something went wrong :(</h1>')
+    })
 
 function makeAndAppendCards(respArr) {
     for (let resp of respArr) {
         $numDiv.append(`<div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">${resp.number}</h5>
-                            <h6 class="card-text">${resp.text}</h6>
+                            <h6 class="card-text">${resp.data.text}</h6>
                         </div>
                      </div>
                      `)
