@@ -1,19 +1,19 @@
-const numContainer = document.querySelector('.nums-container');
+const $numDiv = $('.num-div');
 
 function getFacts () {
     let fourFacts = axios.get('http://numbersapi.com/1..3,17?json');
     fourFacts
-        .then(resp => console.log(resp.data))
+        .then(resp => makeAndAppendCards(resp.data))
 }
 
-function makeCard(data) {
+function makeAndAppendCards(data) {
     for (let num in data) {
-        return `<div class="card">
-                    <div class="card-body">
-                        <div class="card-title">${num}</div>
-                        <div class="card-text">${data[num]}</div>
-                    </div>
-                </div>
-                `
+        $numDiv.append(`<div class="card">
+                        <div class="card-body">
+                            <div class="card-title">${num}</div>
+                            <div class="card-text">${data[num]}</div>
+                        </div>
+                     </div>
+                     `)
     }
 }
