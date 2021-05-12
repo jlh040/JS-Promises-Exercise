@@ -1,7 +1,7 @@
 const $numDiv = $('.num-div');
 
 function getFacts () {
-    let fourFacts = axios.get('http://numbersapi.com/1..3,17?json');
+    let fourFacts = axios.get('http://numbersapi.com/1..8,17?json');
     fourFacts
         .then(resp => makeAndAppendCards(resp.data))
 }
@@ -17,3 +17,5 @@ function makeAndAppendCards(data) {
                      `)
     }
 }
+
+getFacts()
